@@ -34,6 +34,9 @@ section h2{
 section button, section h2{
     display: inline-block;
 }
+section div.day div h3{
+   max-width: 220px;
+}
 section button{
     font-size: 1.5rem;
     border: 2px solid #000000;

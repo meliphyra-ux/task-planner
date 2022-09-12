@@ -30,10 +30,12 @@ taskList.forEach(taskRaw => {
 addButtons.forEach(button => {
     button.addEventListener('click', function(){
         const name = prompt('Task?', 'Chill');
-        const task = new Task(name, addButtons.indexOf(button), Math.floor(Math.random() * 1000000))
+        if(name != null){
+            const task = new Task(name, addButtons.indexOf(button), Math.floor(Math.random() * 1000000))
         taskList.push(task)
         addTask(task) 
         localStorage.setItem('myTasks', JSON.stringify([...taskList]))
+        }
     })
 })
 function addTask(task){
@@ -51,5 +53,5 @@ function deleteTask(button){
         }
     })
     parent.remove();
-    localStorage.setItem('myTasks', JSON.stringify([...taskList]));
+    localStorage.setItem('myTasks', JSON.stringify([...taskList])); 
 }

@@ -3,9 +3,10 @@ const addButtons = Array(...document.querySelectorAll('button.add'))
 const taskList = localStorage.getItem('myTasks') ? [...JSON.parse(localStorage.getItem('myTasks'))] : [];
 
 class Task{
-    constructor(name, day){
+    constructor(name, day, id){
         this._name = name;
         this.day = day;
+        this.id = id;
     }
     static counter = 0;
     get name(){
@@ -22,23 +23,33 @@ class Task{
 // let task = new Task('Test', 4)
 
 taskList.forEach(taskRaw => {
-    const task = new Task(taskRaw._name, taskRaw.day)
-    updateDisplay(task)
+    const task = new Task(taskRaw._name, taskRaw.day,taskRaw.id)
+    addTask(task)
 })
 
 addButtons.forEach(button => {
     button.addEventListener('click', function(){
         const name = prompt('Task?', 'Chill');
-        const task = new Task(name, addButtons.indexOf(button))
+        const task = new Task(name, addButtons.indexOf(button), Math.floor(Math.random() * 1000000))
         taskList.push(task)
-        updateDisplay(task)
+        addTask(task) 
         localStorage.setItem('myTasks', JSON.stringify([...taskList]))
     })
 })
-function updateDisplay(task){
-    console.log(task.name)
-    const html = `<div>
+function addTask(task){
+    const html = `<div id="${task.id}">
         <h3>${task.name}</h3>
+        <button onClick="deleteTask(this)">Delete Task</button>
     </div>`
     calendar[task.day].innerHTML += html;
+}
+function deleteTask(button){
+    const parent = button.parentNode;
+    taskList.forEach((task, index) =>{
+        if(task.id === +parent.getAttribute('id')){
+            taskList.splice(index, 1)
+        }
+    })
+    parent.remove();
+    localStorage.setItem('myTasks', JSON.stringify([...taskList]));
 }

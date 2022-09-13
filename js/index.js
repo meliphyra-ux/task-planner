@@ -1,6 +1,10 @@
 const calendar = Array(...document.querySelectorAll('.day'))
 const addButtons = Array(...document.querySelectorAll('button.add'))
+const closeButton = document.querySelector('button.close')
+const modalWindow = document.querySelector('#modalWindow')
 const taskList = localStorage.getItem('myTasks') ? [...JSON.parse(localStorage.getItem('myTasks'))] : [];
+const submitButton = document.querySelector('button[type="submit"')
+const inputValue = document.querySelector('input')
 
 class Task{
     constructor(name, day, id){
@@ -29,15 +33,42 @@ taskList.forEach(taskRaw => {
 
 addButtons.forEach(button => {
     button.addEventListener('click', function(){
-        const name = prompt('Task?', 'Chill');
-        if(name != null){
-            const task = new Task(name, addButtons.indexOf(button), Math.floor(Math.random() * 1000000))
-        taskList.push(task)
-        addTask(task) 
-        localStorage.setItem('myTasks', JSON.stringify([...taskList]))
-        }
+        modalWindow.style.display = "flex";
+        submitButton.setAttribute('class', `${addButtons.indexOf(button)}`)
     })
 })
+submitButton.addEventListener('click', e =>{
+    e.stopPropagation();
+    e.preventDefault();
+    const name = inputValue.value;
+    console.log
+        if(name != null && name){
+            const task = new Task(name, +submitButton.getAttribute('class'), Math.floor(Math.random() * 1000000))
+            taskList.push(task)
+            addTask(task) 
+            localStorage.setItem('myTasks', JSON.stringify([...taskList]))
+            modalWindow.style.display = "none";
+            inputValue.value = ""
+        }
+        else{
+            alert('Write at least 1 character in "Your task" field')
+        }
+
+})
+modalWindow.addEventListener('click',e=>{
+    e.preventDefault();
+    if(e.target == modalWindow){
+        modalWindow.style.display = "none";
+    }
+})
+
+closeButton.addEventListener('click',e =>{
+    e.preventDefault();
+    e.stopPropagation()
+    modalWindow.style.display = "none";
+})
+// First step - create modal window: complete;
+// Second step - implement open/closing logic: 
 function addTask(task){
     const html = `<div id="${task.id}">
         <h3>${task.name}</h3>

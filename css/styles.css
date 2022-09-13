@@ -46,6 +46,54 @@ section button{
     background-color: #ffffff;
     cursor: pointer;
 }
+#modalWindow{
+    width:100vw;
+    height: 100vh;
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+form{
+    width: 50%;
+    height: 50%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+}
+form label{
+    font-size: 2.5rem;
+}
+form input{
+    height: 20%;
+    font-size: 2rem;
+    border: 2px solid #000000
+}
+form button[type="submit"]{
+    height: 15%;
+    font-size: 2rem;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    cursor: pointer;
+}
+form button.close{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    background-color: #ffffff;
+    border: 0;
+    font-size: 1.25rem;
+}
+form input, form label, form button[type="submit"]{
+    margin: 15px 0;
+}
 @media screen and (min-width: 1600px){
     html{
         font-size: 20px;

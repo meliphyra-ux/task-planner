@@ -78,7 +78,7 @@ closeButton.addEventListener("click", (e) => {
 function addTask(task) {
   const html = `<div id="${task.id}">
         <h3>${task.name}</h3>
-        <button onClick="deleteTask(this)">Delete Task</button>
+        <button value="delete" onClick="deleteTask(this)">Delete Task</button>
     </div>`;
   calendar[task.day].innerHTML += html;
 }

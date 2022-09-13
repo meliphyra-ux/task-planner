@@ -1,106 +1,109 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
-*{
-    font-family: 'Dosis', monospace;
-    box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap");
+* {
+  font-family: "Dosis", monospace;
+  box-sizing: border-box;
 }
-body{
-    padding: 0 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    min-height: 100vh;
+body {
+  padding: 0 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
 }
-main{
-    width: 100%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+main {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
-h1{
-    text-align: left;
-    width: 100%;
+h1 {
+  text-align: left;
+  width: 100%;
 }
-section{
-    min-width: 220px;
-    width: 18%;
-    height: 500px;
-    text-align: center;
-    overflow: auto;
-    border: 2px solid #000000;
-    margin: 10px 5px;
+section {
+  min-width: 220px;
+  width: 18%;
+  height: 500px;
+  text-align: center;
+  overflow: auto;
+  border: 2px solid #000000;
+  margin: 10px 5px;
 }
-section h2{
-    margin-right: 15px;
+section h2 {
+  margin-right: 15px;
 }
-section button, section h2{
-    display: inline-block;
+section button,
+section h2 {
+  display: inline-block;
 }
-section div.day div h3{
-   width: 100%;
+section div.day div h3 {
+  width: 100%;
 }
-section button{
-    font-size: 1.5rem;
-    border: 2px solid #000000;
-    padding: 0px 15px 5px;
-    background-color: #ffffff;
-    cursor: pointer;
+section button {
+  font-size: 1.5rem;
+  border: 2px solid #000000;
+  padding: 0px 15px 5px;
+  background-color: #ffffff;
+  cursor: pointer;
 }
-#modalWindow{
-    width:100vw;
-    height: 100vh;
-    position: absolute;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+#modalWindow {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 }
-form{
-    width: 50%;
-    height: 50%;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px;
-    position: relative;
+form {
+  width: 50%;
+  height: 50%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
 }
-form label{
-    font-size: 2.5rem;
+form label {
+  font-size: 2.5rem;
 }
-form input{
-    height: 20%;
-    font-size: 2rem;
-    border: 2px solid #000000
+form input {
+  height: 20%;
+  font-size: 2rem;
+  border: 2px solid #000000;
 }
-form button[type="submit"]{
-    height: 15%;
-    font-size: 2rem;
-    background-color: #ffffff;
-    border: 2px solid #000000;
-    cursor: pointer;
+form button[type="submit"] {
+  height: 15%;
+  font-size: 2rem;
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  cursor: pointer;
 }
-form button.close{
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-    background-color: #ffffff;
-    border: 0;
-    font-size: 1.25rem;
+form button.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: 0;
+  font-size: 1.25rem;
 }
-form input, form label, form button[type="submit"]{
-    margin: 15px 0;
+form input,
+form label,
+form button[type="submit"] {
+  margin: 15px 0;
 }
-@media screen and (min-width: 1600px){
-    html{
-        font-size: 20px;
-    }
+@media screen and (min-width: 1600px) {
+  html {
+    font-size: 20px;
+  }
 }
 @media screen and (max-width: 480px) {
-    section{
-        width: 80%;
-    }
+  section {
+    width: 80%;
+  }
 }
